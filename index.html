@@ -1,169 +1,418 @@
 <!DOCTYPE html>
-
 <html lang="id">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8" />
+<title>Happy Birthday Bebeee ❤️</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Untuk Lintang Inka </title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Sacramento&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css" />
+<style>
 
-<link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500; 600;700&display=swap" rel="stylesheet">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-<link href="https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display swap" rel="stylesheet">
+body{
+background:linear-gradient(180deg,#ffd6e7,#ffeef6);
+overflow:hidden;
+height:100vh;
+}
+
+.screen{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:absolute;
+left:0;
+top:0;
+transition:.8s;
+}
+
+#home{
+z-index:10;
+}
+
+h1{
+font-family:'Sacramento',cursive;
+font-size:65px;
+color:#ff4f8b;
+margin-bottom:15px;
+}
+
+.sub{
+font-size:18px;
+color:#555;
+margin-bottom:40px;
+text-align:center;
+padding:0 25px;
+}
+
+.envelope{
+width:220px;
+height:140px;
+background:#ff8db8;
+position:relative;
+border-radius:8px;
+cursor:pointer;
+box-shadow:0 20px 35px rgba(0,0,0,.15);
+transition:.4s;
+}
+
+.envelope:hover{
+transform:scale(1.05);
+}
+
+.envelope::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:110px solid transparent;
+border-right:110px solid transparent;
+border-top:75px solid #ff6aa0;
+transform-origin:top;
+transition:.7s;
+z-index:5;
+}
+
+.envelope.open::before{
+transform:rotateX(180deg);
+}
+
+.letter{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+bottom:0;
+width:190px;
+height:110px;
+background:white;
+border-radius:8px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+color:#ff4f8b;
+transition:.8s;
+z-index:2;
+}
+
+.envelope.open .letter{
+bottom:120px;
+}
+
+.tap{
+margin-top:30px;
+color:#ff4f8b;
+font-weight:600;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.3;
+}
+}
+
+#content{
+opacity:0;
+pointer-events:none;
+background:#fff6fb;
+padding:30px;
+overflow:auto;
+}
+
+.photo{
+width:240px;
+height:320px;
+border-radius:20px;
+object-fit:cover;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+margin:20px auto;
+display:block;
+}
+
+.message{
+max-width:700px;
+text-align:center;
+line-height:2;
+color:#555;
+font-size:18px;
+padding-bottom:50px;
+}
+
+.message h2{
+font-family:'Sacramento',cursive;
+font-size:60px;
+color:#ff4f8b;
+margin-bottom:20px;
+}
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+}
+
+.heart{
+position:absolute;
+bottom:-30px;
+font-size:22px;
+animation:float 7s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+.musicBtn{
+margin-top:30px;
+background:#ff4f8b;
+color:white;
+padding:14px 28px;
+border:none;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+}
+
+.musicBtn:hover{
+background:#ff2f74;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<!-- PART 1: HALAMAN AMPLOP-->
+<div class="hearts" id="hearts"></div>
 
-<section id="page-envelope" class="page active">
+<div class="screen" id="home">
 
-<!-- Background -->
+<h1>Lintang Inka ❤️</h1>
 
-<div class="bg">
+<div class="sub">
 
-<div class="cloud cloud1"></div>
-
-<div class="cloud cloud2"></div>
-
-<div class="cloud cloud3"></div>
-
-<div class="stars"></div>
-
-<div class="hearts-fall" id="heartsFall"></div>
+Haii sayangkuu...<br>
+Aku punya hadiah kecil buat kamu 🎁
 
 </div>
 
-<div class="content">
+<div class="envelope" id="openLetter">
 
-<h1 class="title">Untuk</h1>
+<div class="letter">
 
-<h1 class="name">Lintang Inka</h1>
-
-<div class="divider"><i class="fas fa-heart"></i></div>
-
-<p class="from">Dari</p>
-
-<p class="from-name">Yutaro</p>
-
-<div class="envelope-wrapper" id="envelopewrapper">
-
-<div class="envelope" id="envelope">
-
-<div class="envelope-flap"></div>
-
-<div class="envelope-body">
-
-<i class="fas fa-heart"></i>
+Untuk My Sayanggg Guee 💌
 
 </div>
 
 </div>
 
-</div>
+<div class="tap">
+
+Tap Amplop 💗
 
 </div>
 
-<p class="hint">Klik amplop untuk membuka </p>
+</div>
 
-</section>
+<div class="screen" id="content">
 
-<!-- PART 2: HALAMAN ISI -->
+<h2>Happy Birthday My Love 🎂</h2>
+<img src="images/foto1.jpg" class="photo">
 
-<section id="page-content" class="page">
+<div class="message">
 
-<!-- Tombol Kembali / Musik
+<p>
+Haii sayangkuu.<br><br>
 
-<div class="top-bar">
+aku your mbg kamu, aku punya hadiah nih buat kamu sayang,
+semogaa kamu sukaa yaa 💗
+</p>
 
-<button id="musicBtn" class="music-btn">
+<br>
 
-<button id="backBtn" class="back-btn">
+<p>
 
-<i class="fas fa-arrow-left"></i> Kembali
+Happy birthday sayangkuu my cantikk🫶🏻
+
+<br><br>
+
+makasih udah pernah hadir di hidup aku dan aku bener-bener mau bilang makasih karna kamu udah lahir di dunia.
+
+<br><br>
+
+bareng kamuu, hidup akuu jadi lebih baik dan akuu belajar banyak hall.
+
+</p>
+
+</div>
+
+<img src="images/foto2.jpg" class="photo">
+
+<div class="message">
+
+<p>
+
+doa terbaikk dari akuu 🤍
+
+<br><br>
+
+semogaa kamu panjang umurr,
+rezeki nya jor jorann teruss,
+
+<br><br>
+
+dan apa yang lagi kamu perjuangin bisaa kamu wujudinn yaa sayangg.
+
+<br><br>
+
+I lovee you so much bebeee ❤️
+
+</p>
+
+</div>
+
+<img src="images/foto3.jpg" class="photo">
+
+<div class="message">
+
+<h2>✨ MAKE A WISH ✨</h2>
+
+<p>
+
+semogaa kamu jadi pribadi yang lebih baik dari sebelumnya.
+
+<br><br>
+
+semogaa kamu selaluu sabar nunggu akuu disana buat nyamperin kamuu.
+
+<br><br>
+
+dan yang paling...
+
+my dream banget sihhh wkwkwkwk.
+
+<br><br>
+
+semogaa kitaa bisa cepet ketemu,
+
+dan bikin banyak trend tiktok sayanggg 🤍
+
+<br><br>
+
+aku bangga sama kamuu bebee.
+
+<br><br>
+
+❤️ Happy 18 Years Old Lintang sayanggg ❤️
+
+<br><br>
+
+I LOVE YOUUUUU FOREVER 💗
+
+</p>
+
+<button class="musicBtn" onclick="playMusic()">
+
+🎵 Putar Lagu
 
 </button>
 
 </div>
 
-<i class="fas fa-music"></i> <span>Play Music</span>
-
-</button>
-
-<!-- Slider Foto-->
-
-<div class="slider" id="photoSlider">
-
-<div class="slides">
-
-<div class="slide active"><img src="images/foto1.jpg" alt="Foto 1"></div>
-
-<div class="slide"><img src="images/foto2.jpg" alt="Foto 2"></div>
-
-</div>
-
-<div class="slide"><img src="images/foto3.jpg" alt="Foto 3"></div>
-
-<button class="prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-
-<button class="next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-
-<div class="dots" id="dots"></div>
-
-</div>
-
-<!-- Surat / Pesan -->
-
-<div class="letter-container"s
-
-<div class="paper">
-
-<div class="heart-stamp"><i class="fas fa-heart"></i></div>
-
-</div>
-
-<div class="letter-content" id="typewriter"></div>
-
-</div>
-
-<!-- Akhir -->
-
-<div class="final-message">
-
-<h2>Happy 18th Birthday</h2>
-
-<h1 class="final-name">Lintang Inka</h1>
-
-<p class="love">Semoga hari-harimu selalu penuh kebahagiaan!</p>
-
-</div>
-
-<div class="heart-large"><i class="fas fa-heart"></i></div>
-
-</section>
-
-<!-- Musik -->
-
-<audio id="bgMusic" loop preload="auto">
-
-</audio>
+<audio id="music">
 
 <source src="music/i-wanna-be-yours.mp3" type="audio/mpeg">
 
-<!-- Library Icons -->
+</audio>
+<script>
 
-<script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+const envelope=document.getElementById("openLetter");
+const home=document.getElementById("home");
+const content=document.getElementById("content");
 
-<!-- JavaScript -->
+envelope.onclick=function(){
 
-</html>
+envelope.classList.add("open");
 
-<script src="script.js"></script>
+setTimeout(()=>{
+
+home.style.opacity="0";
+home.style.pointerEvents="none";
+
+content.style.opacity="1";
+content.style.pointerEvents="auto";
+
+},1200);
+
+}
+
+function playMusic(){
+
+document.getElementById("music").play();
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💗";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.getElementById("hearts").appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},7000);
+
+}
+
+setInterval(createHeart,400);
+
+</script>
 
 </body>
+
+</html>
